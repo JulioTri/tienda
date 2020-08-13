@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+# Activar rewite
+RewriteEngine on
+ErrorDocument 404 http://localhost/ProyectoPHP/proyecto-php-poo/error/
+#aca se indica que la url nunca mostrara ni directorio ni fichero
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f 
+#Regla para reescribir la url
+RewriteRule ^(.*)/(.*) index.php?controller=$1&action=$2
+#Para verificar ingresar a http://localhost/ProyectoPHP/proyecto-php-poo/tienda/usuario/registro
+</IfModule>
